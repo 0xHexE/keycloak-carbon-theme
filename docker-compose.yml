@@ -1,0 +1,14 @@
+keycloak:
+  container_name: keycloak
+  image: quay.io/ukhomeofficedigital/keycloak:v4.2.1-1
+  ports:
+  - "8080:8080"
+  volumes:
+  - ./.docker-compose/keycloak.env:/etc/secrets/keycloak.env
+  - ./carbon/:/opt/jboss/keycloak/themes/carbon/
+  environment:
+    KEYCLOAK_ENVIRONMENT: "/etc/secrets/keycloak.env"
+    KEYCLOAK_PASSWORD: "admin"
+    KEYCLOAK_USER: "admin"
+  command:
+  - -b 0.0.0.0 --server-config=standalone.xml
