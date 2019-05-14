@@ -1,5 +1,8 @@
-class LoginPage {
+import './style.scss';
+
+class App {
     constructor() {
-        console.log('TEST');
     }
+
+    attachToDom() {}
 }

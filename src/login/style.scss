@@ -1,0 +1,76 @@
+$app-page-background: #ECECEC;
+$app-toolbar-background: #FFF;
+
+@import "../../node_modules/carbon-components/css/carbon-components.css";
+
+body {
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  background-color: $app-page-background;
+}
+
+.app-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 56px;
+  padding: 0 12px;
+  background-color: $app-toolbar-background;
+  border-bottom: 1px solid #ececec;
+}
+
+.sign-in-card-title {
+  padding-top: 1.5rem;
+  padding-bottom: 1.0rem;
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+
+.form-container>* {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 599px) {
+  .form-container {
+    margin: 40px auto;
+    max-width: 568px;
+    padding: 1rem;
+    background-color: #FFF;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-container {
+    padding: 1rem;
+  }
+
+  body {
+    background-color: #FFF;
+  }
+
+  .sign-in-card-title {
+    padding-bottom: 1.5rem;
+  }
+}
+
+.fixed-notification {
+  position: fixed;
+  right: 0;
+}
+
+.bx--checkbox-wrapper.remember-me-checkbox {
+  margin-bottom: 1rem!important;
+}
+
+.sign-up-divider {
+  border-bottom: 1px solid #ECECEC;
+}
+
+// .forgot-password-link {
+//   margin-bottom: 1rem!important;
+// }
+
+.social-login.google {
+  
+}

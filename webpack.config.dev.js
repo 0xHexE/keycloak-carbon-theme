@@ -5,9 +5,17 @@ const CopyPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
-module.exports = {
+const commonConfig = (entryPoint) => ({
+    entry: `./src/${ entryPoint }/index.ts`,
+
     module: {
         rules: [
+            {
+                include: [path.resolve(__dirname, 'src')],
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/
+            },
             {
                 include: [path.resolve(__dirname, 'src')],
                 loader: 'babel-loader',
@@ -48,8 +56,8 @@ module.exports = {
     },
 
     output: {
-        chunkFilename: '[name].js',
-        filename: '[name].js'
+        filename: 'bundle.js',
+        path: path.join(__dirname, `./carbon/${ entryPoint }/resources/js/`),
     },
 
     mode: process.env.NODE_ENV || 'development',
@@ -57,16 +65,15 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new webpack.BannerPlugin({
-            banner: 'Copyright 2019'
+            banner: () => `Copyright ${ new Date().getFullYear() }`
         }),
         new webpack.EnvironmentPlugin({}),
         new Dotenv(),
         new CopyPlugin([
             {
-                from: 'src',
-                to: '.',
-                test: /\.ftl$/,
-                ignore: ['*.js'],
+                from: path.join(__dirname, `src/${ entryPoint }`),
+                to: path.join(__dirname, `/carbon/${ entryPoint }`),
+                ignore: ['*.js', '*.ts'],
             },
         ]),
     ],
@@ -87,4 +94,6 @@ module.exports = {
         },
         minimizer: [],
     },
-};
+});
+
+module.exports = ['login', 'account'].map(res => commonConfig(res));
