@@ -73,7 +73,7 @@ const commonConfig = (entryPoint) => ({
             {
                 from: path.join(__dirname, `src/${ entryPoint }`),
                 to: path.join(__dirname, `/carbon/${ entryPoint }`),
-                ignore: ['*.js', '*.ts'],
+                ignore: ['*.js', '*.ts', '*.scss'],
             },
         ]),
     ],
