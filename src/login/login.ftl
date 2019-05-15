@@ -50,21 +50,18 @@
         </#if>
 
         <div class="bx--form-item">
-          <button class="bx--btn bx--btn--primary" tabindex="3" type="submit">Login</button>
+          <button class="bx--btn bx--btn--primary" tabindex="3" type="submit">${msg('loginTitle', client.name)}</button>
         </div>
 
         <div class="sign-up-divider"></div>
 
-        <span>Don't have account?</span>&nbsp;<a href="${url.registrationUrl}">${msg("Create account")}</a>
+        <span>${msg('dontHaveAccount')}</span>&nbsp;<a href="${url.registrationUrl}">${msg("Create account")}</a>
 
         <#if realm.password && social.providers??>
           <br />
           <div class="sign-up-divider"></div>
-
-          <span>Or Login with</span>
-
+          <span>${msg('socialProviders')}</span>
           <br />
-
           <#list social.providers as p>
             <a href="${p.loginUrl}" id="zocial-${p.alias}" class="bx--btn bx--btn--tertiary social-login ${p.providerId}">${p.displayName}</a>
           </#list>
