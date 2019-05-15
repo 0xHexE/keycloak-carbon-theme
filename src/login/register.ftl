@@ -71,7 +71,7 @@
               <button class="bx--btn bx--btn--primary" type="submit">${msg("doRegister")}</button>
             </div>
 
-            <a class="link-back" href="${url.loginUrl}">${msg("backToLogin")}</a>
+            <a class="link-back" href="${url.loginUrl}">${msg("backToLogin")?no_esc}</a>
         </form>
     </#if>
 </@layout.commonLayout>

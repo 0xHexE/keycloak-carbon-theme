@@ -25,7 +25,7 @@
           ${msg("doResetPassword")}
         </button>
         <br />
-        <a class="" href="${url.loginUrl}">${msg("backToLogin")}</a>
+        <a class="" href="${url.loginUrl}">${msg("backToLogin")?no_esc}</a>
       </form>
     </#if>
 </@layout.commonLayout>

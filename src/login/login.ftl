@@ -50,7 +50,7 @@
         </#if>
 
         <div class="bx--form-item">
-          <button class="bx--btn bx--btn--primary" tabindex="3" type="submit">${msg('loginTitle')}</button>
+          <button class="bx--btn bx--btn--primary" tabindex="3" type="submit">${msg('loginTitle', client.name)}</button>
         </div>
 
         <div class="sign-up-divider"></div>
