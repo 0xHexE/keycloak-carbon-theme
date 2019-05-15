@@ -74,3 +74,21 @@ body {
 .social-login.google {
   
 }
+
+.rows {
+  display: flex;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    > *:not(:last-child) {
+      margin-bottom: 1rem!important;
+    }
+  }
+
+  @media (min-width: 599px) {
+    flex-direction: row;
+    >*:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+}
